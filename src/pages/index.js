@@ -11,7 +11,7 @@ export default function Home() {
   // Bot tokens are now stored in .env.local
   const botOptions = [
     { label: "Samy Media Token", value: process.env.NEXT_PUBLIC_SLACK_BOT_1 },
-    { label: "Marketing Bot", value: process.env.NEXT_PUBLIC_SLACK_BOT_2 },
+    { label: "GIR Token", value: process.env.NEXT_PUBLIC_SLACK_BOT_2 },
     { label: "Support Bot", value: process.env.NEXT_PUBLIC_SLACK_BOT_3 },
   ];
 
