@@ -1,14 +1,15 @@
+
+
 import { useState } from "react";
 import axios from "axios";
 
 export default function Home() {
-  const [userIds, setUserIds] = useState(""); // multiple user IDs comma separated
+  const [userIds, setUserIds] = useState(""); 
   const [message, setMessage] = useState("");
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [selectedBot, setSelectedBot] = useState(""); // selected bot token
+  const [selectedBot, setSelectedBot] = useState(""); 
 
-  // Bot tokens are now stored in .env.local
   const botOptions = [
     { label: "Samy Media Token", value: process.env.NEXT_PUBLIC_SLACK_BOT_1 },
     { label: "GIR Token", value: process.env.NEXT_PUBLIC_SLACK_BOT_2 },
@@ -38,7 +39,7 @@ export default function Home() {
         const res = await axios.post("/api/slack/send", {
           userId: id,
           message,
-          botToken: selectedBot, // pass selected bot token
+          botToken: selectedBot,
         });
         resList.push({ userId: id, result: res.data });
       }
@@ -53,7 +54,7 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
+    <main className="min-h-screen bg-white flex flex-col justify-center items-center p-6 text-black">
       <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
         <h1 className="text-2xl font-bold mb-4 text-center">Slack DM Sender</h1>
 
@@ -101,7 +102,7 @@ export default function Home() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 disabled:bg-blue-300"
+            className="w-full bg-blue-500 text-white p-2 cursor-pointer rounded-lg hover:bg-blue-600 disabled:bg-blue-300"
           >
             {loading ? "Sending..." : "Send Message"}
           </button>
